@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Catálogo de juegos</title>
+</head>
+<body>
+    <h1>Catálogo de juegos</h1>
+    <p><%= total %> juegos en total</p>
+
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Título</th>
+            <th>Estudio</th>
+            <th>Género</th>
+            <th>Año</th>
+            <th>Precio</th>
+            <th>Rating</th>
+        </tr>
+        <% juegos.forEach(function(juego) { %>
+            <tr>
+                <td><%= juego.id %></td>
+                <td><%= juego.title %></td>
+                <td><%= juego.studio %></td>
+                <td><%= juego.genre %></td>
+                <td><%= juego.release_year %></td>
+                <td><%= juego.price %></td>
+                <td><%= juego.rating %></td>
+            </tr>
+        <% }); %>
+    </table>
+
+    <p>Página <%= page %> de <%= totalPages %></p>
+
+    <% if (page > 1) { %>
+        <a href="/games?page=<%= page - 1 %>">Anterior</a>
+    <% } %>
+
+    <% if (page < totalPages) { %>
+        <a href="/games?page=<%= page + 1 %>">Siguiente</a>
+    <% } %>
+</body>
+</html>
