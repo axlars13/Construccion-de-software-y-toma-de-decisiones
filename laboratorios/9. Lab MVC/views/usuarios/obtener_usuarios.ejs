@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <%- include('./../css.ejs') %>
+</head>
+<body>
+    <h1><%= title %></h1>
+    <h2>Usuarios activos</h2>
+    <ul>
+        <% usuarios.forEach(function(usuario) { %>
+            <li><%= usuario.id %> - <%= usuario.nombre %></li>
+        <% }); %>
+    </ul>
+    <h2>Alertas</h2>
+    <ul>
+        <% alertas.forEach(function(alerta) { %>
+            <li><%= alerta.id %> - <%= alerta.titulo %></li>
+        <% }); %>
+    </ul>
+</body>
+<%- include('./../scripts.ejs') %>
+</html>
