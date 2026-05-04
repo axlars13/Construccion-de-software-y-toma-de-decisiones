@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Búsqueda de juegos</title>
+</head>
+<body>
+    <h1>Búsqueda de juegos</h1>
+
+    <% if (modo === 'inseguro') { %>
+        <p>Modo inseguro</p>
+    <% } else { %>
+        <p>Modo seguro</p>
+    <% } %>
+
+    <form method="get" action="<%= modo === 'inseguro' ? '/games/buscar-inseguro' : '/games/buscar' %>">
+        <input type="text" name="titulo" value="<%= titulo %>">
+        <button type="submit">Buscar</button>
+    </form>
+
+    <p>Resultados: <%= resultados.length %></p>
+
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Título</th>
+            <th>Año</th>
+            <th>Precio</th>
+            <th>Rating</th>
+        </tr>
+        <% resultados.forEach(function(juego) { %>
+            <tr>
+                <td><%= juego.id %></td>
+                <td><%= juego.title %></td>
+                <td><%= juego.release_year %></td>
+                <td><%= juego.price %></td>
+                <td><%= juego.rating %></td>
+            </tr>
+        <% }); %>
+    </table>
+</body>
+</html>
