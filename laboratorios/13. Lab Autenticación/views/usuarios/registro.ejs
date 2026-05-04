@@ -1,0 +1,15 @@
+<% if (error && error.length > 0) { %>
+    <div style="color: red;"><%= error %></div>
+<% } %>
+
+<form action="/usuarios/login" method="POST">
+    <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+    
+    <label>Usuario:</label>
+    <input type="text" name="username">
+    
+    <label>Contraseña:</label>
+    <input type="password" name="password">
+    
+    <button type="submit">Entrar</button>
+</form>
