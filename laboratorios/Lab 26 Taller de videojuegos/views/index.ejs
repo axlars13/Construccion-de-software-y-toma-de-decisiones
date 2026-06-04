@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Highway Dodger</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <main>
+    <h1>HIGHWAY DODGER</h1>
+    <canvas id="game" width="320" height="480"></canvas>
+
+    <section id="leaderboard">
+      <h2>Top 10</h2>
+      <ol>
+        <% scores.forEach(function(s) { %>
+          <li>
+            <span class="name"><%= s.name %></span>
+            <span class="score"><%= s.score %></span>
+          </li>
+        <% }); %>
+        <% if(scores.length === 0) { %>
+          <li class="empty">Sin spuntajes aún - sé el primero.</li>
+        <% } %>
+      </ol>
+    </section>
+  </main>
+  <script src="/game.js"></script>
+</body>
+</html>
